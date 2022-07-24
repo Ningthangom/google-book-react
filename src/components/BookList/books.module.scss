@@ -1,0 +1,11 @@
+
+
+.books_container {
+    margin:2% 10%;
+    display: flex;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    grid-gap: 1.5rem;
+    background-color: #fff;
+    grid-auto-rows: 1fr;
+}

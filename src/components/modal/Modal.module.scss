@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@200&family=Dancing+Script&family=Heebo&family=Libre+Baskerville&family=Nunito:wght@800&family=Roboto:wght@300&family=Splash&family=The+Nautigal&family=Yatra+One&display=swap');
+
+
+
+
+.modal {
+    font-size: 20px;
+    background-color: rgb(80, 72, 57);
+    width: 60vw;
+    height: 60vh;
+    padding: 8px;font-family: 'Yatra One';
+    border: 3px dotted rgb(255, 0, 0);
+    overflow: scroll;
+    
+}
+
+
+.modal>.header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal>.content {
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.modal>.actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+}
+
+.modal>.close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
+
+
+
+// Colours
+$dark-grey: #1F1A25;
+$yellow: #FDE74C;
+$purple: #B8B3E9;
+$blue: #78E0DC;
+$white: #FFFFFF;
+
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700,800&display=swap');
+
+$font-set-1: 'Muli', Arial, sans-serif;
+
+$normal: 400;
+$bold: 700;
+$extra-bold: 800;
+
+
+// === Button Styles
+@mixin btn($txt, $bx, $bx-hover) {
+    border: 0;
+    border-radius: 5px;
+    color: $txt;
+    font-family: $font-set-1;
+    font-weight: $extra-bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: blue;
+    box-shadow: 0 8px darken($bx, 20%);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: darken($bx-hover, 10%);
+    }
+
+    &:active {
+        transform: translateY(4px);
+        box-shadow: 0 3px darken($bx, 20%);
+    }
+}
+
+/* button {
+    @include btn($txt: $dark-grey, $bx: $blue, $bx-hover: red);
+} */
+
+// Cut - blue
+.btn_primary {
+    @include btn($txt: $dark-grey, $bx: $blue, $bx-hover: red);
+}
+
+/* 
+
+// Basic Button Style
+.button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid $red;
+    border-radius: 0.6em;
+    color: $red;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        outline: 0;
+    }
+}
+
+//BUTTON 1
+.first {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+    &:hover {
+        box-shadow: 0 0 40px 40px $red inset;
+    }
+} */

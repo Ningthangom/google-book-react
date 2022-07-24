@@ -1,0 +1,129 @@
+
+.card {
+    --card-gradient: rgba(0, 0, 0, 0.8);
+    --card-gradient: #5e9ad9, #1777bb;
+
+    background-color: rgb(13, 235, 124);
+    border-radius: 0.5rem;
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+    padding-bottom: 1rem;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+ 
+
+    img {
+        border-radius: 0.5rem 0.5rem 0 0;
+        width: 100%;
+        object-fit: cover;
+
+        max-height: max(10rem, 30vh);
+        aspect-ratio: 4/3;
+        mix-blend-mode: var(--card-blend-mode);
+        // filter: grayscale(100);
+
+        ~* {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    &:hover,
+    &:focus-within {
+        --card-gradient: #24a9d5 max(8.5rem, 20vh);
+    }
+}
+
+/* Additional demo display styles */
+* {
+    box-sizing: border-box;
+}
+
+.card h3 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: orange;
+}
+
+.card a {
+    color: black;
+}
+
+.card_wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 120ch;
+    padding-left: 10px;
+    height: 500px;
+    text-overflow: ellipsis;
+   
+}
+
+// === Variables
+
+// Colours
+$dark-grey: #1F1A25;
+$yellow: #FDE74C;
+$purple: #B8B3E9;
+$blue: #78E0DC;
+$white: #FFFFFF;
+
+// Typography
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700,800&display=swap');
+
+$font-set-1: 'Muli', Arial, sans-serif;
+
+$normal: 400;
+$bold: 700;
+$extra-bold: 800;
+
+
+// === Button Styles
+@mixin btn($txt, $bx, $bx-hover) {
+    border: 0;
+    border-radius: 5px;
+    color: $txt;
+    font-family: $font-set-1;
+    font-weight: $extra-bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: blue;
+    box-shadow: 0 8px darken($bx, 20%);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: darken($bx-hover, 10%);
+    }
+
+    &:active {
+        transform: translateY(4px);
+        box-shadow: 0 3px darken($bx, 20%);
+    }
+}
+
+/* button {
+    @include btn($txt: $dark-grey, $bx: $blue, $bx-hover: red);
+} */
+
+// Cut - blue
+.btn_primary {
+    @include btn($txt: $dark-grey, $bx: $blue, $bx-hover: red);
+}
+
