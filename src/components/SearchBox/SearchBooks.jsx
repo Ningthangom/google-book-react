@@ -8,6 +8,7 @@ const SearchBooks = () => {
 
     const [textInput, setTextInput] = useState('');
     const [resultBooks, setResultBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
           const initialData =async() => {
@@ -25,6 +26,8 @@ const SearchBooks = () => {
               return 0;
           } catch (err) {
               console.log(err);
+          } finally {
+            setLoading(false)
           }
           }
     initialData();
@@ -34,8 +37,9 @@ const SearchBooks = () => {
         setTextInput(event.target.value);
     }
 
-    const handleSearchBooks = async () => {
+    const handleSearchBooks = async (e) => {
         console.log("Search button is click")
+            e.preventDefault();
              try {
         const response = await fetch(
             `https://www.googleapis.com/books/v1/volumes?q=search+${textInput}&maxResults=40`,
@@ -54,28 +58,38 @@ const SearchBooks = () => {
     }
 }
 
-console.log(resultBooks.length);
+/* console.log(resultBooks.length); */
 
   return (
       <>
           <div className={styles.Search}>
               <div className={styles.search_box}>
-                  <input
-                      type="text"
-                      className={styles.input_search}
-                      placeholder="Type to Search..."
-                      onChange={handleOnChange}
-                      value={textInput}
-                  />
-                  <button
-                      className={styles.btn_search}
-                      onClick={handleSearchBooks}
-                  >
-                      <i className="fa fa-search"></i>
-                  </button>
+                  <form onSubmit={handleSearchBooks}>
+                      {" "}
+                      <input
+                          type="text"
+                          className={styles.input_search}
+                          placeholder="Type to Search..."
+                          onChange={handleOnChange}
+                          value={textInput}
+                      />
+                      <button
+                          className={styles.btn_search}
+                         type="submit"
+                      >
+                          <i className="fa fa-search"></i>
+                      </button>
+                  </form>
               </div>
           </div>
-          <ResultedBooks books={resultBooks} />
+          {loading ? (
+              <div className={styles.ring}>
+                  Loading
+                  <span></span>
+              </div>
+          ) : (
+              <ResultedBooks books={resultBooks} />
+          )}
       </>
   );
 }
